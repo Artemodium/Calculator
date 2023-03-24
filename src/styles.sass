@@ -3,24 +3,73 @@ body, html
   padding: 0
   box-sizing: border-box
 
-input
+input, button
   all: unset
+  background: none
+  color: inherit
+  border: none
+  padding: 0
+  font: inherit
+  cursor: pointer
+  outline: inherit
 
 .app-wrapper
   height: 100vh
 
 .app-content
   margin: 0 auto
+  display: flex
   width: 695px
   height: 640px
   background: #ffffff
 
 .app-content-constructor
   margin-top: 111px
-  margin-left: 70px
-  width: 50%
+  margin-left: 101px
+  width: 42%
   height: 448px
   display: flex
   flex-direction: column
   align-items: center
   justify-content: space-between
+
+.app-content-preview
+  margin-top: 43px
+  width: 57%
+  height: 516px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+
+.frame
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: #ffffff
+  border-radius: 6px
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+
+.simple
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: #ffffff
+  border-radius: 6px
+  margin-bottom: 13px
+
+.frame_display
+  width: 240px
+  height: 60px
+
+.frame_row, .simple_row
+  width: 240px
+  height: 56px
+
+.frame_block, .simple_block
+  width: 240px
+  height: 224px
+
+.frame_button
+  width: 240px
+  height: 72px
