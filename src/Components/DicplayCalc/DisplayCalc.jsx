@@ -15,7 +15,7 @@ const DisplayCalc = (props) => {
     return (
         <div className={props.isFrame ? 'frame frame_display' : 'simple simple_display'} ref={dragRef}>
             <div className='frame_display-inner' >
-                <input className={'display-input'} defaultValue={props.defaultValue}></input>
+                <input id={props.id} className={'display-input'} defaultValue={props.defaultValue}></input>
             </div>
         </div>
     )

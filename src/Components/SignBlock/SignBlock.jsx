@@ -12,11 +12,11 @@ const SignBlock = (props) => {
         }),
     })
     const symbols = props.symbols.map(symbol =>
-        <Button element={props.element} mod={symbol==="0" ? "_large" : props.mod} symb={symbol} isFrame={false} key={symbol}></Button>)
+        <Button id={props.id} element={props.element} mod={symbol==="0" ? "_large" : props.mod} symb={symbol} isFrame={false} key={symbol}></Button>)
 
     return (
-        <div className={props.isFrame ? 'frame  frame' + props.frame : 'simple simple' + props.frame} ref={dragRef}>
-            <div className={props.element + " " + props.element + "-block-container"} >
+        <div id={props.id} className={props.isFrame ? 'frame  frame' + props.frame : 'simple simple' + props.frame} ref={dragRef}>
+            <div id={props.id} className={props.element + " " + props.element + "-block-container"} >
                 {symbols}
             </div>
         </div>

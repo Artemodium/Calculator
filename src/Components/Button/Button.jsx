@@ -12,7 +12,7 @@ const Button = (props) => {
     })
 
     return (
-        <div className={props.isFrame ? 'frame frame_button': 'button-' + props.element + props.mod}>
+        <div id={props.id} className={props.isFrame ? 'frame frame_button': 'button-' + props.element + props.mod}>
             <button>
                 {props.symb}
             </button>
