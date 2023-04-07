@@ -38,9 +38,8 @@ const Calculator = (props) => {
     const dropOther = () => {
         return dropAria.filter((el) => el !== "Display")
     }
-
-    const drop = () => {
-        return dropAria
+    const isDisplayReady = () => {
+        return dropAria.includes('Display')
     }
 
     const removeElement = (e) => {
@@ -55,7 +54,7 @@ const Calculator = (props) => {
 
     const dropToAria = (e) => {
         if(dropAria[dropAria.length-1]) {
-            document.querySelector('.' + dropAria[dropAria.length - 1] + '-bottom-line').style.opacity = '0'
+            document.querySelectorAll('.line').forEach(el => el.style.opacity=0)
         }
     }
 
@@ -116,12 +115,14 @@ const Calculator = (props) => {
         <div className='app-calculator'>
             <div className={!hideInvention() ? 'app-calculator-aria' : 'app-calculator-aria app-calculator-aria_changed'} ref={dropRef}
                  onDoubleClick={removeElement} onDragOver={placeElement} onDragLeave={leaveDropAria} onDrop={dropToAria}>
-                {!hideInvention() ? <Invention></Invention> : null}
-                {dropDisplay().map((el) => <div className={'calc' + el}>{calcBlocks[el]} <div>
-                    <Line blockName={el+'-bottom'}></Line>
-                </div></div>)}
-                {dropOther().map((el) =>
+                {  !hideInvention() ? <Invention></Invention> : null  }
+                {  dropDisplay().map((el) => <div className={'calc' + el}>{calcBlocks[el]}
                     <div className='lines'>
+                        <Line blockName={el+'-bottom'}></Line>
+                    </div>
+                </div>)  }
+                {  dropOther().map((el) =>
+                    <div className='block-container'>
                         <div className='lines'>
                             <Line blockName={el + '-top'}></Line>
                         </div>
@@ -133,10 +134,12 @@ const Calculator = (props) => {
                         onDragEnd={(e) => dragEndHandler(e, el)}
                         onDragOver={(e) => dragOverHandler(e, el)}
                         onDrop={(e) => dragDropHandler(e, el)}
-                    >{calcBlocks[el]}<div className='lines'>
-                        <Line blockName={el + '-bottom'}></Line>
-                    </div></div>
-                    </div>)}
+                    >{calcBlocks[el]}
+                    </div>
+                        <div className='lines'>
+                            <Line blockName={el + '-bottom'}></Line>
+                        </div>
+                    </div>)  }
             </div>
         </div>
     )
